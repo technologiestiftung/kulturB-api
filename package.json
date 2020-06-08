@@ -57,7 +57,7 @@
     "vision": "^5.4.4"
   },
   "devDependencies": {
-    "eslint": "5.12.0",
+    "eslint": "7.2.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0"
   }
