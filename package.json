@@ -39,7 +39,7 @@
     "hapi-boom-decorators": "^4.1.2",
     "hapi-pino": "^5.2.0",
     "hapi-rate-limitor": "^2.4.0",
-    "hapi-swagger": "^9.3.0",
+    "hapi-swagger": "^13.0.0",
     "inert": "^5.1.2",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
