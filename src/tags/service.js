@@ -12,10 +12,10 @@ module.exports = class Tag {
       filter,
       {},
       {
-        limit: options.limit ? options.limit : undefined,
-        skip: options.skip ? options.skip : undefined,
+        limit: options.limit,
+        skip: options.skip,
         sort: { [options.sort]: options.order === "ascend" ? 1 : -1 },
-        autopopulate: options.fields ? options.fields : undefined,
+        autopopulate: options.fields,
       }
     );
     const count = await this.count(filter);
