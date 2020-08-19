@@ -70,9 +70,6 @@
         }
       },
       {
-        "plugin": "./src/importer"
-      },
-      {
         "plugin": "./src/tags",
         "routes": {
           "prefix": "/api/v1/tags"
@@ -83,6 +80,9 @@
         "routes": {
           "prefix": "/api/v1/changes"
         }
+      },
+      {
+        "plugin": "./src/importer"
       },
       {
         "plugin": "hapi-pino",
