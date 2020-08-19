@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/wbkd/tsb-kulturb-api/issues"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "homepage": "https://github.com/wbkd/tsb-kulturb-api#readme",
   "dependencies": {
     "aws-sdk": "^2.387.0",
