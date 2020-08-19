@@ -25,8 +25,10 @@ const register = async (server, options) => {
   const data = await csv().fromFile(csvFile);
   const tags = await server.plugins.tags.service.find(undefined, {});
   console.log(tags);
-  data
-    .map((entry) => ({
+  const mappedData = data.map((entry) => {
+    const assignedTags = assignTags(entry.Sparte, tags);
+    console.log(assignedTags);
+    return {
       name: entry.Institution,
       address: entry.Adresse,
       zipcode: entry.PLZ,
@@ -35,17 +37,19 @@ const register = async (server, options) => {
         ? entry.Webseite
         : `https://${entry.Webseite}`,
       types: assignType(entry.Typ),
-      tags: assignTags(entry.Sparte, tags),
-    }))
-    .forEach(async (entry) => {
-      try {
-        await server.plugins.organisations.service.create(entry);
-      } catch (err) {
-        if (err.name !== "ValidationError") {
-          console.log(err);
-        }
+      tags: assignedTags,
+    };
+  });
+
+  mappedData.forEach(async (entry) => {
+    try {
+      await server.plugins.organisations.service.create(entry);
+    } catch (err) {
+      if (err.name !== "ValidationError") {
+        console.log(err);
       }
-    });
+    }
+  });
 };
 
 exports.plugin = {
