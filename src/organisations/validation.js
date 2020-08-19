@@ -108,7 +108,7 @@ const findById = {
 
 const create = {
   payload: {
-    name,
+    name: name.required(),
     location,
     description,
     published,

@@ -3,10 +3,12 @@
     "port": "$env.PORT",
     "routes": {
       "cors": {
-        "origin": [
-          "*"
-        ],
-        "additionalHeaders": ["cache-control", "x-requested-with", "authorization"]
+        "origin": ["*"],
+        "additionalHeaders": [
+          "cache-control",
+          "x-requested-with",
+          "authorization"
+        ]
       }
     },
     "cache": {
@@ -89,7 +91,10 @@
       "inert",
       "vision",
       "hapi-swagger",
-      "blipp"
+      "blipp",
+      {
+        "plugin": "./src/importer"
+      }
     ]
   }
 }
