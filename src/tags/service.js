@@ -11,12 +11,14 @@ module.exports = class Tag {
     const data = await this.db.find(
       filter,
       {},
-      {
-        limit: options.limit ? options.limit : undefined,
-        skip: options.skip ? options.skip : undefined,
-        sort: { [options.sort]: options.order === "ascend" ? 1 : -1 },
-        autopopulate: options.fields ? options.fields : undefined,
-      }
+      options
+        ? {
+            limit: options.limit ? options.limit : undefined,
+            skip: options.skip ? options.skip : undefined,
+            sort: { [options.sort]: options.order === "ascend" ? 1 : -1 },
+            autopopulate: options.fields ? options.fields : undefined,
+          }
+        : undefined
     );
     const count = await this.count(filter);
 
