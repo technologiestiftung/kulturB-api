@@ -70,6 +70,9 @@
         }
       },
       {
+        "plugin": "./src/importer"
+      },
+      {
         "plugin": "./src/tags",
         "routes": {
           "prefix": "/api/v1/tags"
@@ -91,10 +94,7 @@
       "inert",
       "vision",
       "hapi-swagger",
-      "blipp",
-      {
-        "plugin": "./src/importer"
-      }
+      "blipp"
     ]
   }
 }
