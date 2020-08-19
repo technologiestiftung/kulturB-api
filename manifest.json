@@ -91,7 +91,10 @@
       "inert",
       "vision",
       "hapi-swagger",
-      "blipp"
+      "blipp",
+      {
+        "plugin": "./src/importer"
+      }
     ]
   }
 }
