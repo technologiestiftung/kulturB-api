@@ -23,8 +23,8 @@ const register = async (server, options) => {
   const csvFile = options.csvFile || "./data/daten.csv";
 
   const data = await csv().fromFile(csvFile);
-  const tags = await server.plugins.tags.service.find();
-
+  const tags = await server.plugins.tags.service.find(undefined, {});
+  console.log(tags);
   data
     .map((entry) => ({
       name: entry.Institution,
@@ -37,7 +37,7 @@ const register = async (server, options) => {
       types: assignType(entry.Typ),
       tags: assignTags(entry.Sparte, tags),
     }))
-    .forEach(async (entry, i) => {
+    .forEach(async (entry) => {
       try {
         await server.plugins.organisations.service.create(entry);
       } catch (err) {
