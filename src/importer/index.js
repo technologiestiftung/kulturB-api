@@ -26,7 +26,7 @@ const register = async (server, options) => {
   const tags = await server.plugins.tags.service.find(undefined, {});
   console.log(tags);
   const mappedData = data.map((entry) => {
-    const assignedTags = assignTags(entry.Sparte, tags);
+    const assignedTags = assignTags(entry.Sparte, tags.data);
     console.log(assignedTags);
     return {
       name: entry.Institution,
