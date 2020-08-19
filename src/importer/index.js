@@ -24,18 +24,19 @@ const register = async (server, options) => {
 
   const data = await csv().fromFile(csvFile);
   const tags = await server.plugins.tags.service.find(undefined, {});
-  console.log(tags);
   const mappedData = data.map((entry) => {
     const assignedTags = assignTags(entry.Sparte, tags.data);
-    console.log(assignedTags);
+
     return {
       name: entry.Institution,
       address: entry.Adresse,
       zipcode: entry.PLZ,
       city: entry.Ort,
-      website: entry.Webseite.startsWith("http")
-        ? entry.Webseite
-        : `https://${entry.Webseite}`,
+      website:
+        entry.Webseite !== undefined &&
+        entry.Webseite.startsWith("http") === true
+          ? entry.Webseite
+          : `https://${entry.Webseite}`,
       types: assignType(entry.Typ),
       tags: assignedTags,
     };
