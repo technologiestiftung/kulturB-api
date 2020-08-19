@@ -8,12 +8,16 @@ module.exports = class Tag {
   }
 
   async find(filter, options) {
-    const data = await this.db.find(filter, {}, {
-      limit: options.limit,
-      skip: options.skip,
-      sort: { [options.sort]: options.order === 'ascend' ? 1 : -1 },
-      autopopulate: options.fields,
-    });
+    const data = await this.db.find(
+      filter,
+      {},
+      {
+        limit: options.limit ? options.limit : undefined,
+        skip: options.skip ? options.skip : undefined,
+        sort: { [options.sort]: options.order === "ascend" ? 1 : -1 },
+        autopopulate: options.fields ? options.fields : undefined,
+      }
+    );
     const count = await this.count(filter);
 
     return { data, count };
