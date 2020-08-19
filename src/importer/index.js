@@ -41,8 +41,8 @@ const register = async (server, options) => {
       try {
         await server.plugins.organisations.service.create(entry);
       } catch (err) {
+        console.log("entry", entry, "number", i);
         if (err.name !== "ValidationError") {
-          console.log("entry", entry, "number", i);
           console.log(err);
         }
       }
