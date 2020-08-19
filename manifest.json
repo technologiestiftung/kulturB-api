@@ -82,9 +82,6 @@
         }
       },
       {
-        "plugin": "./src/importer"
-      },
-      {
         "plugin": "hapi-pino",
         "options": {
           "prettyPrint": true,
